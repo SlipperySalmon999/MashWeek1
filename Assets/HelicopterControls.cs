@@ -10,12 +10,18 @@ public class HelicopterControls : MonoBehaviour
     [SerializeField] private float Thrust;
     [SerializeField] public float maxHeight;
 
+    private Vector2 CameraPosition;
     private float Throttle;
 
    // private float roll;
    // private float pitch;
    // private float yaw;
 
+
+   private void Start()
+   {
+       Cursor.visible = false;
+   }
     private void HandleInputs()
     {
         //roll = Input.GetAxis("Roll");
@@ -34,9 +40,11 @@ public class HelicopterControls : MonoBehaviour
         {
             Throttle -= Time.deltaTime * Thrust;
         }
-        
-
         Throttle = Mathf.Clamp(Throttle, 0.0f, 100f);
+        
+        CameraPosition.x += Input.GetAxis("Mouse X");
+        CameraPosition.y -= Input.GetAxis("Mouse Y");
+        transform.localRotation = Quaternion.Euler(CameraPosition.y, CameraPosition.x, 0.0f);
     }
     
     void Awake()
@@ -53,7 +61,7 @@ public class HelicopterControls : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigidBody.AddForce(transform.up * Throttle, ForceMode.Impulse);
+        rigidBody.AddForce(Vector3.up * Throttle, ForceMode.Impulse);
         
         if (Input.GetKey(KeyCode.W))
             rigidBody.AddForce(transform.forward * Acceleration, ForceMode.Force);
