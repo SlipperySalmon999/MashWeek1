@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2777835100981298244}
   - component: {fileID: 736999335797361955}
   - component: {fileID: 386820223113566299}
+  - component: {fileID: 2698384810454944372}
   m_Layer: 0
   m_Name: Plunger
   m_TagString: Untagged
@@ -138,3 +139,15 @@ CapsuleCollider:
   m_Height: 0.64
   m_Direction: 1
   m_Center: {x: 0, y: 0.24341837, z: 0}
+--- !u!114 &2698384810454944372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4434961783739229585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f78689c5363baf4408645213ec624b93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

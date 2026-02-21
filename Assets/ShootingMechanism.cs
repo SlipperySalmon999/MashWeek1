@@ -6,20 +6,25 @@ public class ShootingMechanism : MonoBehaviour
     public Transform FiringPoint;
     private Rigidbody rigidBody;
     public float firePowah;
+    private GameObject plungerCopy;
     
     public GameObject solider;
     private Rigidbody SoldrigidBody;
     private bool PlungerMode = true;
     private bool SoliderMode = false;
+
+    public LineRenderer rope;
     
 
     private void FirePlunger()
     {
         Debug.Log("Da Plunger was fired");
-        GameObject plungerCopy = Instantiate(plunger, FiringPoint.position, FiringPoint.rotation);
+        plungerCopy = Instantiate(plunger, FiringPoint.position, FiringPoint.rotation);
         Rigidbody rigidBodyPB = plungerCopy.GetComponent<Rigidbody>();
         rigidBodyPB.isKinematic = false;
         rigidBodyPB.AddForce(transform.forward * firePowah);
+        rope.positionCount = 2;
+        rope.enabled = true;
     }
     
     private void FireSolider()
@@ -64,6 +69,12 @@ public class ShootingMechanism : MonoBehaviour
         else if (Input.GetMouseButtonDown(0) && SoliderMode)
         {
             FireSolider();
+        }
+
+        if (plungerCopy != null)
+        {
+            rope.SetPosition(0, FiringPoint.position);
+            rope.SetPosition(1, plungerCopy.transform.position);
         }
     }
 }
