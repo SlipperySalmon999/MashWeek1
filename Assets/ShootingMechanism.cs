@@ -17,22 +17,24 @@ public class ShootingMechanism : MonoBehaviour
     {
         Debug.Log("Da Plunger was fired");
         GameObject plungerCopy = Instantiate(plunger, FiringPoint.position, FiringPoint.rotation);
-        rigidBody = plungerCopy.GetComponent<Rigidbody>(); 
-        rigidBody.AddForce(transform.forward * firePowah);
+        Rigidbody rigidBodyPB = plungerCopy.GetComponent<Rigidbody>();
+        rigidBodyPB.isKinematic = false;
+        rigidBodyPB.AddForce(transform.forward * firePowah);
     }
     
     private void FireSolider()
     {
         Debug.Log("Da Plunger was fired");
         GameObject soliderCopy = Instantiate(solider, FiringPoint.position, FiringPoint.rotation);
-        rigidBody = soliderCopy.GetComponent<Rigidbody>(); 
-        rigidBody.AddForce(transform.forward * firePowah);
+        Rigidbody rigidBodySold = soliderCopy.GetComponent<Rigidbody>(); 
+        rigidBodySold.isKinematic = false;
+        rigidBodySold.AddForce(transform.forward * firePowah);
     }
 
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         
     }
@@ -57,10 +59,14 @@ public class ShootingMechanism : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && PlungerMode)
         {
+            plunger.SetActive(true);
+            solider.SetActive(false);
             FirePlunger();
         }
         else if (Input.GetMouseButtonDown(0) && SoliderMode)
         {
+            plunger.SetActive(false);
+            solider.SetActive(true);
             FireSolider();
         }
     }
