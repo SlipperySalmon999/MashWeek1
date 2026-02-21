@@ -7,14 +7,14 @@ public class CameraManager : MonoBehaviour
 
     private void SwitchMaincam()
     {
-        mainCam.enabled = false;
-        FPCam.enabled = true;
+        mainCam.enabled = true;
+        FPCam.enabled = false;
     }
 
     private void SwitchFPCam()
     {
-        mainCam.enabled = true;
-        FPCam.enabled = false;
+        mainCam.enabled = false;
+        FPCam.enabled = true;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -28,6 +28,7 @@ public class CameraManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(2)) 
         {
+            Debug.Log("Right mouse button pressed!");
             if (mainCam.enabled)
                 SwitchFPCam();
             else

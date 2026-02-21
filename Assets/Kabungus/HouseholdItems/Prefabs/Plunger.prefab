@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 101380501524902030}
   - component: {fileID: 2777835100981298244}
   - component: {fileID: 736999335797361955}
+  - component: {fileID: 386820223113566299}
   m_Layer: 0
   m_Name: Plunger
   m_TagString: Untagged
@@ -114,3 +115,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &386820223113566299
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4434961783739229585}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.15
+  m_Height: 0.64
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.24341837, z: 0}
