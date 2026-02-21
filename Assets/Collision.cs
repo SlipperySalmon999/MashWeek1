@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class Collision : MonoBehaviour
 {
-
+    
     public AudioClip SoliderHit;
 
     private AudioSource audioSource;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        
     }
 
     private void OnCollisionEnter(Collision collision)
