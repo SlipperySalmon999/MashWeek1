@@ -59,14 +59,10 @@ public class ShootingMechanism : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && PlungerMode)
         {
-            plunger.SetActive(true);
-            solider.SetActive(false);
             FirePlunger();
         }
         else if (Input.GetMouseButtonDown(0) && SoliderMode)
         {
-            plunger.SetActive(false);
-            solider.SetActive(true);
             FireSolider();
         }
     }
