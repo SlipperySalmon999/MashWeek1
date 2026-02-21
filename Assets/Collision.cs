@@ -15,10 +15,9 @@ public class Collision : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Solider"))
+        if (collision.gameObject.CompareTag("Soldier"))
         {
-            Debug.Log("Solider has been hit");
-            audioSource.PlayOneShot(SoliderHit);
+            Debug.Log("Soldier has been hit");
         }
     }
 

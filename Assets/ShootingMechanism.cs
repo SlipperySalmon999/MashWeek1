@@ -18,7 +18,6 @@ public class ShootingMechanism : MonoBehaviour
 
     private void FirePlunger()
     {
-        Debug.Log("Da Plunger was fired");
         plungerCopy = Instantiate(plunger, FiringPoint.position, FiringPoint.rotation);
         Rigidbody rigidBodyPB = plungerCopy.GetComponent<Rigidbody>();
         rigidBodyPB.isKinematic = false;
@@ -29,7 +28,6 @@ public class ShootingMechanism : MonoBehaviour
     
     private void FireSolider()
     {
-        Debug.Log("Da Plunger was fired");
         GameObject soliderCopy = Instantiate(solider, FiringPoint.position, FiringPoint.rotation);
         Rigidbody rigidBodySold = soliderCopy.GetComponent<Rigidbody>(); 
         rigidBodySold.isKinematic = false;
@@ -51,14 +49,12 @@ public class ShootingMechanism : MonoBehaviour
         {
             PlungerMode = true;
             SoliderMode = false;
-            Debug.Log("PlungerMode!");
         }
 
         else if (Input.mouseScrollDelta.y < 0)
         {
             PlungerMode = false;
             SoliderMode = true;
-            Debug.Log("SoliderMode!");
         }
 
 
