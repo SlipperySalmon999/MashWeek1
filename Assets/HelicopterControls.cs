@@ -6,10 +6,10 @@ public class HelicopterControls : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private Rigidbody rigidBody;
 
-    [SerializeField] private float Acceleration;
-    [SerializeField] private float Thrust;
-    [SerializeField] public float maxHeight;
-
+    public float Acceleration;
+    public float Thrust;
+    public float maxHeight;
+    public Camera cam;
     private Vector2 CameraPosition;
     private float Throttle;
 
