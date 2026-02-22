@@ -24,6 +24,14 @@ public class ShootingMechanism : MonoBehaviour
         rigidBodyPB.AddForce(transform.forward * firePowah);
         rope.positionCount = 2;
         rope.enabled = true;
+        
+        PlungerCollision collisionScript = plungerCopy.GetComponent<PlungerCollision>();
+        collisionScript.TheGunShip = this;
+    }
+
+    public void HideRope()
+    {
+        rope.enabled = false;
     }
     
     private void FireSolider()
