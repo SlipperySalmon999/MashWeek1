@@ -1216,6 +1216,7 @@ GameObject:
   - component: {fileID: 1210940157}
   - component: {fileID: 1210940156}
   - component: {fileID: 1210940161}
+  - component: {fileID: 1210940162}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -1238,7 +1239,7 @@ MonoBehaviour:
   Trees: {fileID: 7035193621582100787, guid: 2a3a5cfe03b8d4745bd77dae5a5f5774, type: 3}
   Soliders: {fileID: 6186666321545095493, guid: 8be87c282a267484d85824a5c7dabb38, type: 3}
   TreesToSpawn: 20
-  SolidersToSpawn: 20
+  SolidersToSpawn: 1
 --- !u!64 &1210940157
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1339,6 +1340,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f04fc7737019ca6468646320458601b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1210940162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210940155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbbd4c25566eb5d41a4c207609c52a56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1270493007
