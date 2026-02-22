@@ -1215,6 +1215,7 @@ GameObject:
   - component: {fileID: 1210940158}
   - component: {fileID: 1210940157}
   - component: {fileID: 1210940156}
+  - component: {fileID: 1210940161}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -1328,6 +1329,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1210940161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210940155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f04fc7737019ca6468646320458601b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1270493007
 GameObject:
   m_ObjectHideFlags: 0
@@ -1753,6 +1766,7 @@ MonoBehaviour:
   rope: {fileID: 1552528432}
   audioSource: {fileID: 1552528436}
   soliderLaunched: {fileID: 8300000, guid: cdee0c7ee5cf6db438b7e641823b9c41, type: 3}
+  SolidersBeingHeld: 0
 --- !u!120 &1552528432
 LineRenderer:
   serializedVersion: 2
