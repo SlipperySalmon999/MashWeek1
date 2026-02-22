@@ -1,11 +1,13 @@
 using UnityEngine;
+using TMPro;
 
 public class SoliderCollision : MonoBehaviour
 {
     public AudioClip SoliderSaved;
     private AudioSource audioSource;
-    private float SolidersToBeSaved;
     public SpawnEntities DaScript;
+    public UIScript OtherScript;
+
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -13,7 +15,10 @@ public class SoliderCollision : MonoBehaviour
     {
         GameObject goal = GameObject.Find("EndGoal");
         audioSource = goal.GetComponent<AudioSource>(); 
-        SolidersToBeSaved = DaScript.SolidersToSpawn;
+        GameObject plane = GameObject.Find("Plane");
+        DaScript = plane.GetComponent<SpawnEntities>();
+        GameObject camera =  GameObject.Find("Main Camera");
+        OtherScript = camera.GetComponent<UIScript>();
     }
     
     private void OnCollisionEnter(Collision collision)
@@ -21,15 +26,16 @@ public class SoliderCollision : MonoBehaviour
         if (collision.gameObject.CompareTag("Goal"))
         {
             //subtract to the number soliders need to be saved
-            SolidersToBeSaved--;
-            Debug.Log("Soldier has been sent to the hosiptal you aer a national hero now :) also " + SolidersToBeSaved + " left");
+            DaScript.SolidersToSpawn--;
+            Debug.Log("Soldier has been sent to the hosiptal you aer a national hero now :) also " + DaScript.SolidersToSpawn + " left");
             audioSource.PlayOneShot(SoliderSaved);
-            if (SolidersToBeSaved == 0)
+            OtherScript.UpdateScoreSaved();
+            if (DaScript.SolidersToSpawn <= 0)
             {
                 Debug.Log("You're a weener");
                 Application.LoadLevel("Win");
             }
-            
+            Destroy(gameObject);
           
         }
     }

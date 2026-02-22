@@ -24,6 +24,8 @@ public class ShootingMechanism : MonoBehaviour
 
     public float SolidersBeingHeld;
     
+    public UIScript OtherScript;
+    
 
     private void FirePlunger()
     {
@@ -51,6 +53,7 @@ public class ShootingMechanism : MonoBehaviour
         rigidBodySold.AddForce(transform.forward * firePowah);
         audioSource = gameObject.GetComponent<AudioSource>();
         audioSource.PlayOneShot(soliderLaunched);
+        OtherScript.DecrementSolider();
     }
 
 
@@ -58,7 +61,8 @@ public class ShootingMechanism : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        
+        GameObject camera =  GameObject.Find("Main Camera");
+        OtherScript = camera.GetComponent<UIScript>();
     }
 
     // Update is called once per frame
