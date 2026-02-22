@@ -4,7 +4,7 @@ public class SoliderCollision : MonoBehaviour
 {
     public AudioClip SoliderSaved;
     private AudioSource audioSource;
-    private float SolidersSaved;
+    private float SolidersToBeSaved;
     public SpawnEntities DaScript;
     
     
@@ -13,7 +13,7 @@ public class SoliderCollision : MonoBehaviour
     {
         GameObject goal = GameObject.Find("EndGoal");
         audioSource = goal.GetComponent<AudioSource>(); 
-        SolidersSaved = DaScript.SolidersToSpawn;
+        SolidersToBeSaved = DaScript.SolidersToSpawn;
     }
     
     private void OnCollisionEnter(Collision collision)
@@ -21,10 +21,10 @@ public class SoliderCollision : MonoBehaviour
         if (collision.gameObject.CompareTag("Goal"))
         {
             //subtract to the number soliders need to be saved
-            SolidersSaved--;
-            Debug.Log("Soldier has been sent to the hosiptal you aer a national hero now :)");
+            SolidersToBeSaved--;
+            Debug.Log("Soldier has been sent to the hosiptal you aer a national hero now :) also " + SolidersToBeSaved + " left");
             audioSource.PlayOneShot(SoliderSaved);
-            if (SolidersSaved <= 0)
+            if (SolidersToBeSaved == 0)
             {
                 Debug.Log("You're a weener");
                 Application.LoadLevel("Win");

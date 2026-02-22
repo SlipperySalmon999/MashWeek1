@@ -75,6 +75,8 @@ public class HelicopterControls : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
             rigidBody.AddForce(transform.right * Acceleration, ForceMode.Force);
         
+        
+        
 
         if (transform.position.y >= maxHeight)
         {
