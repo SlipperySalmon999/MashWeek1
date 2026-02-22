@@ -153,3 +153,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de1b892da63c604eaec0dc61014e68e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SoliderSaved: {fileID: 8300000, guid: d34babb73864c2c40870e64532e37fd5, type: 3}
+  audioSource: {fileID: 0}

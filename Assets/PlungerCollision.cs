@@ -4,12 +4,12 @@ public class PlungerCollision : MonoBehaviour
 {
     public AudioClip SoliderHit;
     public ShootingMechanism TheGunShip;
-    private AudioSource audioSource;
+    public AudioSource audioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+      
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -18,6 +18,7 @@ public class PlungerCollision : MonoBehaviour
         {
             Debug.Log("Soldier has been hit");
             
+            TheGunShip.audioSource.PlayOneShot(SoliderHit);
             Destroy(collision.gameObject);
             Destroy(gameObject);
             TheGunShip.HideRope();

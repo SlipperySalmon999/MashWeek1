@@ -4,11 +4,11 @@ public class SoliderCollision : MonoBehaviour
 {
     public AudioClip SoliderSaved;
     
-    private AudioSource audioSource;
+    public AudioSource audioSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
     
     private void OnCollisionEnter(Collision collision)
@@ -17,6 +17,7 @@ public class SoliderCollision : MonoBehaviour
         {
             Debug.Log("Soldier has been sent to the hosiptal you aer a national hero now :)");
             Destroy(gameObject);
+            audioSource.PlayOneShot(SoliderSaved);
             
     
         }

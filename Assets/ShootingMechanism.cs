@@ -15,6 +15,9 @@ public class ShootingMechanism : MonoBehaviour
 
     public LineRenderer rope;
     
+    public AudioSource audioSource;
+    public AudioClip soliderLaunched;
+    
 
     private void FirePlunger()
     {
@@ -40,6 +43,8 @@ public class ShootingMechanism : MonoBehaviour
         Rigidbody rigidBodySold = soliderCopy.GetComponent<Rigidbody>(); 
         rigidBodySold.isKinematic = false;
         rigidBodySold.AddForce(transform.forward * firePowah);
+        audioSource = gameObject.GetComponent<AudioSource>();
+        audioSource.PlayOneShot(soliderLaunched);
     }
 
 
