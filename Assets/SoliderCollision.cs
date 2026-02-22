@@ -3,12 +3,12 @@ using UnityEngine;
 public class SoliderCollision : MonoBehaviour
 {
     public AudioClip SoliderSaved;
-    
-    public AudioSource audioSource;
+    private AudioSource audioSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        GameObject goal = GameObject.Find("EndGoal");
+        audioSource = goal.GetComponent<AudioSource>();
     }
     
     private void OnCollisionEnter(Collision collision)
@@ -16,8 +16,8 @@ public class SoliderCollision : MonoBehaviour
         if (collision.gameObject.CompareTag("Goal"))
         {
             Debug.Log("Soldier has been sent to the hosiptal you aer a national hero now :)");
-            Destroy(gameObject);
             audioSource.PlayOneShot(SoliderSaved);
+            Destroy(gameObject);
             
     
         }
