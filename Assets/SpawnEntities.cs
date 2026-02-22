@@ -32,20 +32,12 @@ public class SpawnEntities : MonoBehaviour
         {
             XPos = Random.Range(-100, 100);
             ZPos = Random.Range(-100, 100);
-            Instantiate(Soliders, new Vector3(XPos, 0, ZPos), Quaternion.identity);
+            GameObject SoliderCopy = Instantiate(Soliders, new Vector3(XPos, 0, ZPos), Quaternion.identity);
+            SoliderCollision DaSolider = SoliderCopy.GetComponent<SoliderCollision>();
+            DaSolider.DaScript = this;
         }
         
         solidersToSave = SolidersToSpawn;
-    }
-
-    public void DaWinCondition()
-    {
-        solidersToSave--;
-        if (solidersToSave <= 0)
-        {
-            Debug.Log("You're a weener");
-            Application.LoadLevel("Win");
-        }
     }
 
     // Update is called once per frame
