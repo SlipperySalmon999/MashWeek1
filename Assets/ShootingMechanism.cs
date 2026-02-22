@@ -18,6 +18,12 @@ public class ShootingMechanism : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip soliderLaunched;
     
+    private SpawnEntities SpawnScriptStuff;
+
+    private float SolidersCarryCapacity = 3;
+
+    public float SolidersBeingHeld;
+    
 
     private void FirePlunger()
     {
@@ -27,7 +33,6 @@ public class ShootingMechanism : MonoBehaviour
         rigidBodyPB.AddForce(transform.forward * firePowah);
         rope.positionCount = 2;
         rope.enabled = true;
-        
         PlungerCollision collisionScript = plungerCopy.GetComponent<PlungerCollision>();
         collisionScript.TheGunShip = this;
     }
@@ -39,6 +44,7 @@ public class ShootingMechanism : MonoBehaviour
     
     private void FireSolider()
     {
+        SolidersBeingHeld--;
         GameObject soliderCopy = Instantiate(solider, FiringPoint.position, FiringPoint.rotation);
         Rigidbody rigidBodySold = soliderCopy.GetComponent<Rigidbody>(); 
         rigidBodySold.isKinematic = false;
@@ -71,11 +77,11 @@ public class ShootingMechanism : MonoBehaviour
         }
 
 
-        if (Input.GetMouseButtonDown(0) && PlungerMode)
+        if (Input.GetMouseButtonDown(0) && PlungerMode && SolidersBeingHeld != 3)
         {
             FirePlunger();
         }
-        else if (Input.GetMouseButtonDown(0) && SoliderMode)
+        else if (Input.GetMouseButtonDown(0) && SoliderMode && SolidersBeingHeld != 0)
         {
             FireSolider();
         }
